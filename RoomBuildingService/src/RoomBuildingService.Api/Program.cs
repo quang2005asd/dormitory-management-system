@@ -5,7 +5,6 @@ using RoomBuildingService.Infrastructure.BackgroundWorkers;
 using RoomBuildingService.Infrastructure.Messaging;
 using RoomBuildingService.Infrastructure.Persistence;
 using RoomBuildingService.Infrastructure.Persistence.Repositories;
-using Scalar.AspNetCore;
 var builder = WebApplication.CreateBuilder(args);
 // ── Database ────────────────────────────────────────────────
 builder.Services.AddDbContext<AppDbContext>(opt =>
@@ -27,7 +26,7 @@ builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddProblemDetails();
 // ── Controllers + Swagger ────────────────────────────────────
 builder.Services.AddControllers();
-builder.Services.AddOpenApi();
+builder.Services.AddSwaggerGen();
 // ── CORS ────────────────────────────────────────────────────
 builder.Services.AddCors(opt =>
 opt.AddPolicy("AllowAll", p =>
@@ -42,14 +41,13 @@ var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
 db.Database.Migrate();
 }
 // ── Middleware pipeline ──────────────────────────────────────
-// THÊM 2 DÒNG NÀY
-app.MapOpenApi();
-app.MapScalarApiReference(opt =>
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    opt.Title  = "Room & Building Service API";
-    opt.Theme  = ScalarTheme.Purple;
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Room & Building Service API v1");
+    c.RoutePrefix = "swagger";
 });
-app.MapGet("/", () => Results.Redirect("/scalar/v1"));
+app.MapGet("/", () => Results.Redirect("/swagger"));
 app.UseExceptionHandler(_ => { });
 app.UseCors("AllowAll");
 app.MapControllers();

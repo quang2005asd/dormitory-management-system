@@ -1,4 +1,5 @@
 namespace RoomBuildingService.Infrastructure.Persistence.Repositories;
+using System.Text.Json;
 using Microsoft.EntityFrameworkCore;
 using RoomBuildingService.Core.Entities;
 using RoomBuildingService.Core.Exceptions;
@@ -83,9 +84,32 @@ public async Task UpdateStatusAsync(Guid id, string status, string? maintenanceR
     var existing = await db.Rooms.FindAsync(id)
         ?? throw new NotFoundException("Room", id);
 
-    existing.Status            = status;
+    if (existing.Status != status)
+    {
+        var now = DateTime.UtcNow;
+        db.OutboxEvents.Add(new OutboxEvent
+        {
+            Id          = Guid.NewGuid(),
+            EventType   = "room.status.changed",
+            AggregateId = existing.Id,
+            Payload     = JsonSerializer.Serialize(new
+            {
+                roomId = existing.Id,
+                oldStatus = existing.Status,
+                newStatus = status,
+                maintenanceReason,
+                changedAt = now
+            }),
+            Status    = "PENDING",
+            RetryCount = 0,
+            CreatedAt = now
+        });
+
+        existing.Status    = status;
+        existing.UpdatedAt = now;
+    }
+
     existing.MaintenanceReason = maintenanceReason;
-    existing.UpdatedAt         = DateTime.UtcNow;
 
     await db.SaveChangesAsync();
 }
