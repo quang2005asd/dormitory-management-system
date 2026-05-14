@@ -1,0 +1,12 @@
+C:\Users\quang\OneDrive\Desktop\Code\QLKTX\dormitory-management-system\RoomBuildingService\src\RoomBuildingService.Core\bin\Debug\net9.0\RoomBuildingService.Core.deps.json
+C:\Users\quang\OneDrive\Desktop\Code\QLKTX\dormitory-management-system\RoomBuildingService\src\RoomBuildingService.Core\bin\Debug\net9.0\RoomBuildingService.Core.dll
+C:\Users\quang\OneDrive\Desktop\Code\QLKTX\dormitory-management-system\RoomBuildingService\src\RoomBuildingService.Core\bin\Debug\net9.0\RoomBuildingService.Core.pdb
+C:\Users\quang\OneDrive\Desktop\Code\QLKTX\dormitory-management-system\RoomBuildingService\src\RoomBuildingService.Core\obj\Debug\net9.0\RoomBuildingService.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\quang\OneDrive\Desktop\Code\QLKTX\dormitory-management-system\RoomBuildingService\src\RoomBuildingService.Core\obj\Debug\net9.0\RoomBuildingService.Core.AssemblyInfoInputs.cache
+C:\Users\quang\OneDrive\Desktop\Code\QLKTX\dormitory-management-system\RoomBuildingService\src\RoomBuildingService.Core\obj\Debug\net9.0\RoomBuildingService.Core.AssemblyInfo.cs
+C:\Users\quang\OneDrive\Desktop\Code\QLKTX\dormitory-management-system\RoomBuildingService\src\RoomBuildingService.Core\obj\Debug\net9.0\RoomBuildingService.Core.csproj.CoreCompileInputs.cache
+C:\Users\quang\OneDrive\Desktop\Code\QLKTX\dormitory-management-system\RoomBuildingService\src\RoomBuildingService.Core\obj\Debug\net9.0\RoomBuildingService.Core.sourcelink.json
+C:\Users\quang\OneDrive\Desktop\Code\QLKTX\dormitory-management-system\RoomBuildingService\src\RoomBuildingService.Core\obj\Debug\net9.0\RoomBuildingService.Core.dll
+C:\Users\quang\OneDrive\Desktop\Code\QLKTX\dormitory-management-system\RoomBuildingService\src\RoomBuildingService.Core\obj\Debug\net9.0\refint\RoomBuildingService.Core.dll
+C:\Users\quang\OneDrive\Desktop\Code\QLKTX\dormitory-management-system\RoomBuildingService\src\RoomBuildingService.Core\obj\Debug\net9.0\RoomBuildingService.Core.pdb
+C:\Users\quang\OneDrive\Desktop\Code\QLKTX\dormitory-management-system\RoomBuildingService\src\RoomBuildingService.Core\obj\Debug\net9.0\ref\RoomBuildingService.Core.dll
