@@ -43,7 +43,15 @@ public async Task<IActionResult> Create([FromBody] BedCreateRequest req)
 {
     var bed = new Bed { RoomId = req.RoomId, BedNumber = req.BedNumber };
     var created = await repo.CreateAsync(bed);
-    return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
+    return CreatedAtAction(nameof(GetById), new { id = created.Id }, new BedResponse
+    {
+        Id        = created.Id,
+        RoomId    = created.RoomId,
+        BedNumber = created.BedNumber,
+        Status    = created.Status,
+        CreatedAt = created.CreatedAt,
+        UpdatedAt = created.UpdatedAt
+    });
 }
 
 [HttpPut("{id}")]
@@ -51,7 +59,15 @@ public async Task<IActionResult> Update(Guid id, [FromBody] BedUpdateRequest req
 {
     var bed = new Bed { Id = id, BedNumber = req.BedNumber, Status = req.Status };
     var updated = await repo.UpdateAsync(bed);
-    return Ok(updated);
+    return Ok(new BedResponse
+    {
+        Id        = updated.Id,
+        RoomId    = updated.RoomId,
+        BedNumber = updated.BedNumber,
+        Status    = updated.Status,
+        CreatedAt = updated.CreatedAt,
+        UpdatedAt = updated.UpdatedAt
+    });
 }
 
 [HttpDelete("{id}")]

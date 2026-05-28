@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\quang\\OneDrive\\Desktop\\Code\\QLKTX\\dormitory-management-system\\RoomBuildingService\\src\\RoomBuildingService.Core\\RoomBuildingService.Core.csproj": {}
+    "C:\\Users\\quang\\OneDrive\\Desktop\\Code\\QLKTX\\dormitory-management-system\\dormitory-management-system\\RoomBuildingService\\src\\RoomBuildingService.Core\\RoomBuildingService.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\quang\\OneDrive\\Desktop\\Code\\QLKTX\\dormitory-management-system\\RoomBuildingService\\src\\RoomBuildingService.Core\\RoomBuildingService.Core.csproj": {
+    "C:\\Users\\quang\\OneDrive\\Desktop\\Code\\QLKTX\\dormitory-management-system\\dormitory-management-system\\RoomBuildingService\\src\\RoomBuildingService.Core\\RoomBuildingService.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\quang\\OneDrive\\Desktop\\Code\\QLKTX\\dormitory-management-system\\RoomBuildingService\\src\\RoomBuildingService.Core\\RoomBuildingService.Core.csproj",
+        "projectUniqueName": "C:\\Users\\quang\\OneDrive\\Desktop\\Code\\QLKTX\\dormitory-management-system\\dormitory-management-system\\RoomBuildingService\\src\\RoomBuildingService.Core\\RoomBuildingService.Core.csproj",
         "projectName": "RoomBuildingService.Core",
-        "projectPath": "C:\\Users\\quang\\OneDrive\\Desktop\\Code\\QLKTX\\dormitory-management-system\\RoomBuildingService\\src\\RoomBuildingService.Core\\RoomBuildingService.Core.csproj",
+        "projectPath": "C:\\Users\\quang\\OneDrive\\Desktop\\Code\\QLKTX\\dormitory-management-system\\dormitory-management-system\\RoomBuildingService\\src\\RoomBuildingService.Core\\RoomBuildingService.Core.csproj",
         "packagesPath": "C:\\Users\\quang\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\quang\\OneDrive\\Desktop\\Code\\QLKTX\\dormitory-management-system\\RoomBuildingService\\src\\RoomBuildingService.Core\\obj\\",
+        "outputPath": "C:\\Users\\quang\\OneDrive\\Desktop\\Code\\QLKTX\\dormitory-management-system\\dormitory-management-system\\RoomBuildingService\\src\\RoomBuildingService.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\quang\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -49,7 +49,16 @@ public async Task<IActionResult> Create([FromBody] EquipmentCreateRequest req)
         EquipmentName = req.EquipmentName
     };
     var created = await repo.CreateAsync(equipment);
-    return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
+    return CreatedAtAction(nameof(GetById), new { id = created.Id }, new EquipmentResponse
+    {
+        Id             = created.Id,
+        RoomId         = created.RoomId,
+        EquipmentName  = created.EquipmentName,
+        EquipmentIndex = created.EquipmentIndex,
+        Status         = created.Status,
+        CreatedAt      = created.CreatedAt,
+        UpdatedAt      = created.UpdatedAt
+    });
 }
 
 // PATCH /api/equipments/{id}/status  ← Nhóm Maintenance gọi endpoint này

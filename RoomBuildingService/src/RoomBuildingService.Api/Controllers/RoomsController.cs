@@ -52,7 +52,7 @@ public async Task<IActionResult> Create([FromBody] RoomCreateRequest req)
         FloorNumber = req.FloorNumber
     };
     var created = await repo.CreateAsync(room);
-    return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
+    return CreatedAtAction(nameof(GetById), new { id = created.Id }, MapToResponse(created));
 }
 
 // PUT /api/rooms/{id}

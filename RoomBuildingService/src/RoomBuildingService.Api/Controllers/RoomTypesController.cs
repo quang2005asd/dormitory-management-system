@@ -56,7 +56,17 @@ public async Task<IActionResult> Create([FromBody] RoomTypeCreateRequest req)
                          .ToList()
     };
     var created = await repo.CreateAsync(roomType);
-    return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
+    return CreatedAtAction(nameof(GetById), new { id = created.Id }, new RoomTypeResponse
+    {
+        Id          = created.Id,
+        TypeName    = created.TypeName,
+        Capacity    = created.Capacity,
+        BasePrice   = created.BasePrice,
+        Description = created.Description,
+        Amenities   = created.Amenities.Select(a => a.AmenityName).ToList(),
+        CreatedAt   = created.CreatedAt,
+        UpdatedAt   = created.UpdatedAt
+    });
 }
 
 [HttpPut("{id}")]
@@ -74,7 +84,17 @@ public async Task<IActionResult> Update(Guid id, [FromBody] RoomTypeUpdateReques
                          .ToList()
     };
     var updated = await repo.UpdateAsync(roomType);
-    return Ok(updated);
+    return Ok(new RoomTypeResponse
+    {
+        Id          = updated.Id,
+        TypeName    = updated.TypeName,
+        Capacity    = updated.Capacity,
+        BasePrice   = updated.BasePrice,
+        Description = updated.Description,
+        Amenities   = updated.Amenities.Select(a => a.AmenityName).ToList(),
+        CreatedAt   = updated.CreatedAt,
+        UpdatedAt   = updated.UpdatedAt
+    });
 }
 
 [HttpDelete("{id}")]
