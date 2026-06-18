@@ -9,6 +9,14 @@ using RoomBuildingService.Infrastructure.Persistence.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 var useInMemoryDatabase = builder.Configuration.GetValue<bool>("UseInMemoryDatabase");
+var connectionString =
+    builder.Configuration.GetConnectionString("DefaultConnection")
+    ?? builder.Configuration["DATABASE_URL"];
+
+if (!useInMemoryDatabase && string.IsNullOrWhiteSpace(connectionString))
+{
+    throw new InvalidOperationException("Database connection string is not configured.");
+}
 
 builder.Services.AddDbContext<AppDbContext>(opt =>
 {
@@ -18,8 +26,8 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
         return;
     }
 
-    opt.UseSqlServer(
-        builder.Configuration.GetConnectionString("DefaultConnection"),
+    opt.UseNpgsql(
+        connectionString,
         sql => sql.MigrationsAssembly("RoomBuildingService.Infrastructure"));
 });
 
@@ -50,7 +58,7 @@ using (var scope = app.Services.CreateScope())
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     if (db.Database.IsRelational())
     {
-        db.Database.Migrate();
+        db.Database.EnsureCreated();
     }
 
     SeedData.Initialize(db);
